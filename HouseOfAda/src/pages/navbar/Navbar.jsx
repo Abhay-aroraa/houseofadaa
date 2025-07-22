@@ -30,17 +30,17 @@ const Navbar = ({ cart = [], favorites = [] }) => {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex text-lg space-x-8 font-semibold text-[#f5f5dc]">
-                        {["Home", "Shop", "Product", "Blog", "Contact us"].map((item, i) => (
-                            <Link
-                                key={i}
-                                to={`/${item.toLowerCase().replace(" ", "")}`}
-                                className="hover:underline flex items-center"
-                            >
-                                {item}
-                                <ChevronDown className="ml-1 h-5" />
-                            </Link>
-                        ))}
+                        <Link to="/home" className="hover:underline flex items-center">
+                            Home
+                        </Link>
+                        <Link to="/product" className="hover:underline flex items-center">
+                            Product
+                        </Link>
+                        <Link to="/contactus" className="hover:underline flex items-center">
+                            Contact us
+                        </Link>
                     </div>
+
 
                     {/* Icons */}
                     <div className="flex space-x-5 text-xl text-[#f5f5dc]">

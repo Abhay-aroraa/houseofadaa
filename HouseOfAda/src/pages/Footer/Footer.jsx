@@ -69,7 +69,7 @@ const Footer = () => {
               placeholder="Email address..."
               className="w-full border border-gray-300 p-2 rounded-md sm:rounded-l-md sm:rounded-r-none focus:outline-none mb-2 sm:mb-0"
             />
-            <button className="bg-[#54d9e1] text-white px-4 py-2 rounded-md sm:rounded-r-md sm:rounded-l-none w-full sm:w-auto hover:bg-black transition duration-200">
+            <button className="bg-[#344C3D] text-white px-4 py-2 rounded-md sm:rounded-r-md sm:rounded-l-none w-full sm:w-auto hover:bg-black transition duration-200">
               Submit
             </button>
           </div>

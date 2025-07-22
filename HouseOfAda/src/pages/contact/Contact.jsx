@@ -46,8 +46,8 @@ const Contact = () => {
 
         // Redirect to home after 3 seconds
         setTimeout(() => {
-          navigate("/");
-        }, 3000);
+          navigate("/home");
+        }, 5000);
       })
       .catch((error) => {
         setLoading(false);
@@ -63,7 +63,7 @@ const Contact = () => {
         <div className="flex flex-col items-center justify-center text-center bg-gradient-to-br from-purple-100 to-blue-50 p-8 rounded-2xl shadow-lg">
         <div className="text-blue-500 text-2xl mb-3 drop-shadow-md">✨</div> 
         <h2 className="text-3xl font-extrabold text-blue-700">Message Sent Successfully!</h2>
-        <p className="text-gray-600 mt-3 text-lg">Thank you for reaching out! I'll get back to you shortly.</p>
+        <p className="text-gray-600 mt-3 text-lg">Thank you for reaching out! we'll get back to you shortly.</p>
       </div>
       
       
@@ -71,7 +71,7 @@ const Contact = () => {
         <>
           <h2 className="text-4xl font-bold text-[#2F4F4F] text-center">Get in Touch</h2>
           <p className="text-lg text-gray-600 mt-2 text-center">
-            Feel free to reach out. I’ll respond as soon as possible!
+            Feel free to reach out. we’ll respond as soon as possible!
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">

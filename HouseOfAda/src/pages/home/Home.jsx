@@ -33,7 +33,7 @@ function Home() {
         {/* Right Side - Two Images with Border and Gap */}
         <div className="w-full md:w-1/2 mt-10 md:mt-0 flex flex-col md:flex-row items-center justify-center gap-6">
           {/* First Image */}
-          <div className="p-2 border-2 border-black rounded-t-full">
+          <div className="  hidden md:flex p-2 border-2 border-black rounded-t-full">
             <img
               src={card11}
               alt="Season Fashion 1"
@@ -54,39 +54,41 @@ function Home() {
 
       {/* Cards Section */}
       <div className="w-full py-10 bg-white px-6 md:px-10">
-  <h2
-    className="text-4xl font-bold text-center mb-16 text-[#344C3D]"
-    style={{ fontFamily: "fangsong, serif" }} // Custom font
-  >
-    Recommend By Us !
-  </h2>
-
-  <div className="w-full grid sm:grid-cols-1 md:grid-cols-3 gap-8  p-6 rounded-lg">
-    {CardDetails.map((card, index) => (
-      <div
-        key={index}
-        className="relative shadow-lg rounded-lg overflow-hidden group w-full md:w-[450px] h-[500px] flex items-center justify-center bg-white"
-      >
-        <img
-          src={card.img}
-          alt={card.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-end text-white text-center p-12 bg-black bg-opacity-30">
-          <h3 className="text-2xl font-semibold mb-4 font-serif">{card.title}</h3>
-          <button className="mt-3 px-6 py-2 bg-white font-sans text-black font-semibold rounded-md hover:bg-[#54d9e1] transition">
-            Shop now
-          </button>
+        <h2
+          className="text-4xl font-bold text-center mb-16 text-[#344C3D]"
+          style={{ fontFamily: "fangsong, serif" }} // Custom font
+        >
+          Recommend By Us !
+        </h2>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+          {CardDetails.map((card, index) => (
+            <div
+              key={index}
+              className="relative rounded-2xl overflow-hidden shadow-xl group transform transition duration-300 hover:scale-105"
+            >
+              <img
+                src={card.img}
+                alt={card.title}
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent group-hover:via-black/60 transition duration-300"></div>
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center text-white px-4">
+                <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-md font-serif">
+                  {card.title}
+                </h3>
+                <button className="mt-2 px-6 py-2 bg-white text-black font-semibold rounded-full shadow-md hover:bg-[#344C3D] hover:text-white transition duration-300">
+                  Shop now
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
 
       {/* Categories Section */}
       <div className="w-full py-14 bg-white px-6 md:px-20">
-        <h2 className="text-4xl font-bold text-center mb-16 font-fangsong; text-[#344C3D]"  style={{ fontFamily: "fangsong, serif" }}>
+        <h2 className="text-4xl font-bold text-center mb-16 font-fangsong; text-[#344C3D]" style={{ fontFamily: "fangsong, serif" }}>
           Shop by Categories
         </h2>
         <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 justify-center">
@@ -112,7 +114,7 @@ function Home() {
 
       {/* Instagram Section */}
       <div className="w-full py-14 bg-white px-6 md:px-20 text-center">
-        <h2 className="text-4xl font-bold mb-9 font-fangsong; text-[#344C3D]"  style={{ fontFamily: "fangsong, serif" }}>
+        <h2 className="text-4xl font-bold mb-9 font-fangsong; text-[#344C3D]" style={{ fontFamily: "fangsong, serif" }}>
           Follow us on Instagram
         </h2>
         <h5 className="mb-12 font-sans font-bold">
@@ -124,25 +126,29 @@ function Home() {
             @HouseofAda
           </a>
         </h5>
-        <div className="w-full grid grid-cols-2 md:grid-cols-5 gap-10 justify-center">
-          {InstaIteams.map((insta, index) => (
-            <a
-              key={index}
-              href="https://www.instagram.com/house_of_ada_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="w-40 h-40 md:w-[260px] md:h-[270px] rounded-lg overflow-hidden shadow-lg transition-transform duration-500 hover:scale-110">
-                <img
-                  src={insta.img}
-                  alt="Instagram Post"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </a>
-          ))}
+        <div className="w-full px-4 py-8">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+            {InstaIteams.map((insta, index) => (
+              <a
+                key={index}
+                href="https://www.instagram.com/house_of_ada_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+                  <img
+                    src={insta.img}
+                    alt="Instagram Post"
+                    className="w-full h-full object-cover group-hover:brightness-75 transition duration-300"
+                  />
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
+
       </div>
     </div>
   );
