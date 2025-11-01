@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGetProductListQuery } from "../../../../store/api/productApi";
 import ProductCard from "../../../../components/common/productCard/productCard";
 
 const List = () => {
-  const { data: products = [], isLoading, isError } = useGetProductListQuery();
+  const [page, setPage] = useState(0);
+  const { data, isLoading, isError, isFetching } = useGetProductListQuery({ page });
+console.log("Products API Response:", data)
+  const products = data;
+  const totalPages = data?.totalPages || 1;
+
+  console.log(products)
 
   if (isLoading)
     return <p className="text-center mt-10 text-gray-500">Loading products...</p>;
@@ -17,28 +23,33 @@ const List = () => {
         Explore Our Collection
       </h2>
 
-      {/* 🧩 Responsive Grid */}
       <div
         className="
           grid 
-          grid-cols-2       /* ✅ 2 per row on mobile */
-          sm:grid-cols-2    /* ✅ 2 per row on small screens (iPhones) */
-          md:grid-cols-3    /* 3 on tablets/small laptops */
-          lg:grid-cols-4    /* 4 on large screens */
-          gap-6 
+          grid-cols-2
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          gap-6
           justify-items-center
         "
       >
-        {products.length > 0 ? (
-          products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        ) : (
-          <p className="text-gray-500 text-center col-span-full">
-            No products available.
-          </p>
-        )}
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
+
+      {page + 1 < totalPages && (
+        <div className="text-center mt-8">
+          <button
+            onClick={() => setPage((prev) => prev + 1)}
+            className="px-6 py-2 bg-black text-white rounded-lg"
+            disabled={isFetching}
+          >
+            {isFetching ? "Loading..." : "Load More"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

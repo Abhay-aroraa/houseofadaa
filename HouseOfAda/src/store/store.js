@@ -5,6 +5,7 @@ import { orderApi } from "./api/orderApi";
 import { CartApi } from "./api/CartApi";
 import { addressApi } from "./api/AddressApi";
 import {wishlistApi} from "./api/WishlistApi"
+import { searchApi } from "./api/SearchApi";
 
 export const store = configureStore({
   reducer: {
@@ -13,8 +14,9 @@ export const store = configureStore({
     [orderApi.reducerPath]:orderApi.reducer,
     [CartApi.reducerPath]: CartApi.reducer,
     [addressApi.reducerPath]:addressApi.reducer,
-    [wishlistApi.reducerPath]:wishlistApi.reducer
+    [wishlistApi.reducerPath]:wishlistApi.reducer,
+    [searchApi.reducerPath]:searchApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(productApi.middleware).concat(orderApi.middleware).concat(CartApi.middleware).concat(addressApi.middleware).concat(wishlistApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(productApi.middleware).concat(orderApi.middleware).concat(CartApi.middleware).concat(addressApi.middleware).concat(wishlistApi.middleware).concat(searchApi.middleware)
 });

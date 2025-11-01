@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import List from "../admin/products/productList/productList";
+import InstagramSection from "./InstagramSection";
 
 
 function Home() {
@@ -33,6 +34,8 @@ function Home() {
       </div>
     </div>
     <List/>
+
+ <InstagramSection/>
     </>
   );
 }
